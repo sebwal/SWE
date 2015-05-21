@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AngularJS Prototype",
   "scripts": {
-    "compile": "tsc --sourcemap --out src/components/app/app.js src/_all.ts",
+    "compile": "tsc --sourceMap --out src/components/app/app.js src/_all.ts",
     "webserver": "http-server -a 127.0.0.1 -p 1337"
   },
   "authors": [

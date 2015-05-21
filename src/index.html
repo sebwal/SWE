@@ -5,10 +5,13 @@
     </head>
 
 	<body>
-        <button id="btTest" ng-controller="AppController as ctrl" ng-click="ctrl.test()">
-            Test
-        </button>
+        <div ng-app="shop" ng-controller="AppController as ctrl">            
+            <button id="btTest" ng-click="ctrl.test()">
+                Test
+            </button>
+        </div>
 
-        <script src="/node_modules/angular/angular.js"></script>        
+        <script src="/node_modules/angular-builds/angular.js"></script>
+        <script src="/src/components/app/app.js"></script>        
     </body>
 </html>

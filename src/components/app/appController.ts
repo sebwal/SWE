@@ -4,7 +4,7 @@ module WebShop{
 		'use strict';
 	export class AppController{
 		test(){
-			alert("test!!");
+			console.log("test...asdfaf");
 		}
 	}
 }
