@@ -1,139 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
-	
-<!--
- * Copyright (C) 2013 Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-
+<html lang="de">	
     <head>
-        <!-- http://de.selfhtml.org/html/kopfdaten/meta.htm -->
-        <!-- http://wiki.selfhtml.org/wiki/HTML/Kopfdaten/meta -->
-        <!-- http://wiki.whatwg.org/wiki/MetaExtensions -->
-        <!-- http-equiv = "HTTP equivalent", d.h. in der HTML-Datei setzen statt im Webserver -->
-        <meta charset="utf-8">
-
-        <!-- Bei IE erfolgt das Rendering in der aktuellsten Version des IE, d.h. kein Kompatibilitaetsmodus: -->
-        <!-- http://msdn.microsoft.com/en-us/library/cc288325%28v=vs.85%29.aspx -->
-        <!-- IE=Edge,chrome=1 unterstuetzt das Plugin ChromeFrame, das seit Jan. 2014 nicht mehr weiterentwickelt wird -->
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<!-- Viewport ist der Anzeigebereich im Fenster der Anwendung, der fuer die Darstellung tatsaechlich zur Verfuegung steht. -->
-        <!-- Bei mobilen Geraeten ist der Viewport oft auf eine Breite von 980 Pixeln eingestellt. -->
-        <!-- Deshalb ist eine Website zwar komplett zu sehen, aber die Inhalte sind sehr klein und Schriften nicht lesbar. -->
-        <!-- Anfaenglicher Zoomgrad ist 1.0, so dass die Seite 1:1 dargestellt wird -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <meta name="author" content="J&uuml;rgen Zimmermann">
-        <meta name="keywords" content="Software Engineering,REST,AngularJS,Fontawesome,lodash,Bootstrap,Gulp,Bower">
-
         <title>Webshop</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <!--
-            Beispiel zu Fontawesome:
-            <i class="fa fa-shopping-cart"></i>...
-        -->
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <!--
-            Beispiel zu Material Design siehe bower_components\material-design-icons\sprites\css-sprite:
-            <div class="icon-action-black icon-action-black-ic_search_black_24dp" style="float: left;"></div>
-            <div style="padding-left: 24px;">...</div>
-        -->
-        <link href="/css/sprite-action-black.css" rel="stylesheet">
-        <!--
-            sprite-action-grey600.css
-            sprite-action-white.css
-            sprite-alert-black.css
-            sprite-alert-grey600.css
-            sprite-alert-white.css
-            sprite-av-black.css
-            sprite-av-grey600.css
-            sprite-av-white.css
-            sprite-communication-black.css
-            sprite-communication-grey600.css
-            sprite-communication-white.css
-            sprite-content-black.css
-            sprite-content-grey600.css
-            sprite-content-white.css
-            sprite-device-black.css
-            sprite-device-grey600.css
-            sprite-device-white.css
-            sprite-editor-black.css
-            sprite-editor-grey600.css
-            sprite-editor-white.css
-            sprite-file-black.css
-            sprite-file-grey600.css
-            sprite-file-white.css
-            sprite-hardware-black.css
-            sprite-hardware-grey600.css
-            sprite-hardware-white.css
-            sprite-image-black.css
-            sprite-image-grey600.css
-            sprite-image-white.css
-            sprite-maps-black.css
-            sprite-maps-grey600.css
-            sprite-maps-white.css
-            sprite-navigation-black.css
-            sprite-navigation-grey600.css
-            sprite-navigation-white.css
-            sprite-notification-black.css
-            sprite-notification-grey600.css
-            sprite-notification-white.css
-            sprite-social-black.css
-            sprite-social-grey600.css
-            sprite-social-white.css
-            sprite-toggle-black.css
-            sprite-toggle-grey600.css
-            sprite-toggle-white.css
-        -->
-        <link href="/css/animate.min.css" rel="stylesheet">
-        <link href="/css/shop.min.css" rel="stylesheet">
-        <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-        
-        <!--
-        plunker http://plnkr.co ergaenzt bei den Tags link und script ggf. zusaetzl. Attribute fuer externe Bibliotheken,
-        wie z.B. data-require="bootstrap-css@*" data-semver="3.3.0" oder data-require="traceur@*" data-semver="0.0.0-20140302"
-        plunker (genauso wie jsFiddle) bietet einen Online-Editor mit "As-you-type code linting", damit Entwickler sich austauschen koennen.
-        
-        Das Attribut data-semver ist fuer "semantische Versionierung, d.h. Versionsnummern MAJOR.MINOR.PATCH:
-            1. MAJOR version when you make incompatible API changes,
-            2. MINOR version when you add functionality in a backwards-compatible manner, and
-            3. PATCH version when you make backwards-compatible bug fixes.
-        Semantische Versionierung gemaess Tom Preston-Werner (Mitgruender von GitHub und Erfinder von Gravatars): http://semver.org
-        -->
     </head>
 
-	<body ng-app="app" ng-strict-di ng-controller="AppController as app">
-        <header ng-include="'components/...html'"></header>
-        <nav ng-include="'components/...html'"></nav>
-        <main ng-viewport></main>
-        <footer ng-include="'components/...html'"></footer>
+	<body>
+        <button id="btTest" ng-controller="AppController as ctrl" ng-click="ctrl.test()">
+            Test
+        </button>
 
-        <!--
-        <script src="/js/traceur-runtime.js"></script>
-        -->
-        <script src="/js/angular.min.js"></script>
-        <script src="/js/angular-resource.min.js"></script>
-        <script src="/js/router.es5.min.js"></script>
-        <script src="/js/angular-animate.min.js"></script>
-        <script src="/js/angular-locale_de.js"></script>
-        <!--
-        <script src="/js/angular-cookies.min.js"></script>
-        <script src="/js/angular-aria.min.js"></script>
-        -->
-        <script src="/js/lodash.min.js"></script>
-        <!-- http://momentjs.com/docs -->
-        <script src="/js/moment-with-locales.min.js"></script>
-        <script src="/js/shop.min.js"></script>
+        <script src="/node_modules/angular/angular.js"></script>        
     </body>
 </html>

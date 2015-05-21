@@ -1,5 +1,0 @@
-{
-    "storage": {"packages": "C:/Zimmermann/bower-storage-packages"},
-    "proxy": "http://MeineBenutzerkennung:MeinPasswort@proxy.hs-karlsruhe.de:8888",
-    "https-proxy": "http://MeineBenutzerkennung:MeinPasswort@proxy.hs-karlsruhe.de:8888"
-}

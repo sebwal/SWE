@@ -1,66 +1,22 @@
 {
   "name": "shop",
   "version": "1.0.0",
-  "description": "Beispiel",
-  "main": "dist/js/shop.min.js",
+  "description": "AngularJS Prototype",
   "scripts": {
-    "build": "gulp default",
-    "dev": "gulp watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc --sourcemap --out src/components/app/app.js src/_all.ts",
+    "webserver": "http-server -a 127.0.0.1 -p 1337"
   },
-  "keywords": [
-    "AngularJS",
-    "ES2015",
-    "TypeScript",
-    "Bootstrap",
-    "Fontawesome",
-    "animate.css",
-    "lodash",
-    "Gulp"
-  ],
-  "author": "Juergen Zimmermann",
-  "license": "GPL 3.0",
-  "private": true,
+  "authors": [
+    "Sebastian Walter",
+    "Pascal Tilli",
+    "Timo Stricker"
+  ],  
+  
+  "dependencies": {
+    "angular": "^1.4"
+  },
+
   "devDependencies": {
-    "browser-sync": "^2.7.1",
-    "canonical-path": "0.0.2",
-    "clang-format": "^1.0.10",
-    "del": "^1.1.1",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.2.0",
-    "gulp-babel": "^5.1.0",
-    "gulp-cached": "^1.1.0",
-    "gulp-clang-format": "^1.0.3",
-    "gulp-concat": "^2.5.2",
-    "gulp-eslint": "^0.11.1",
-    "gulp-imagemin": "^2.2.1",
-    "gulp-jsdoc": "^0.1.4",
-    "gulp-jshint": "^1.10.0",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-minify-css": "^1.1.0",
-    "gulp-minify-html": "^1.0.2",
-    "gulp-newer": "^0.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.0",
-    "gulp-shell": "^0.4.1",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-strip-debug": "^1.0.2",
-    "gulp-traceur": "^0.17.1",
-    "gulp-typescript": "^2.6.0",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.4",
-    "gulp-webserver": "^0.9.1",
-    "http-server": "^0.8.0",
-    "jasmine-core": "^2.2.0",
-    "jsdoc": "^3.3.0-beta3",
-    "jshint-stylish": "^1.0.2",
-    "karma": "^0.12.31",
-    "karma-chrome-launcher": "^0.1.8",
-    "karma-coverage": "^0.3.1",
-    "karma-firefox-launcher": "^0.1.4",
-    "karma-jasmine": "^0.3.5",
-    "protractor": "^2.0.0",
-    "shelljs": "^0.4.0",
     "typescript": "git://github.com/mhegazy/typescript.git#v1.5-beta2"
   }
 }
