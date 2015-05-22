@@ -2,8 +2,7 @@
 var WebShop;
 (function (WebShop) {
     'use strict';
-    var app = angular.module('shop', []);
-    app.controller('AppController', WebShop.AppController);
+    angular.module('shop', []);
 })(WebShop || (WebShop = {}));
 /// <reference path="../../_all.ts" />
 var WebShop;
@@ -13,13 +12,14 @@ var WebShop;
         function AppController() {
         }
         AppController.prototype.test = function () {
-            console.log("test...asdfaf");
+            alert("test");
         };
         return AppController;
     })();
     WebShop.AppController = AppController;
+    angular.module('shop').controller('AppController', AppController);
 })(WebShop || (WebShop = {}));
-/// <reference path="../node_modules/angularjs/angular.d.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
 /// <reference path="./components/app/app.ts" />
 /// <reference path="./components/app/appController.ts" /> 
 //# sourceMappingURL=app.js.map

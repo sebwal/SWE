@@ -1,10 +1,12 @@
 /// <reference path="../../_all.ts" />
 
 module WebShop{
-		'use strict';
+	'use strict';
 	export class AppController{
-		test(){
-			console.log("test...asdfaf");
+		test() {
+			alert("test");
 		}
 	}
+	
+	angular.module('shop').controller('AppController', AppController);
 }

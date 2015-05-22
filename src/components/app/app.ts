@@ -1,8 +1,7 @@
 /// <reference path="../../_all.ts" />
 
-module WebShop{
-		'use strict';
-	var app = angular.module('shop', []);
+module WebShop {
+	'use strict';
 	
-	app.controller('AppController', AppController);
+	angular.module('shop', []);
 }

@@ -1,10 +1,11 @@
 {
   "name": "shop",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "AngularJS Prototype",
   "scripts": {
     "compile": "tsc --sourceMap --out src/components/app/app.js src/_all.ts",
-    "webserver": "http-server -a 127.0.0.1 -p 1337"
+    "webserver": "http-server -a 127.0.0.1 -p 1337",
+    "uglify": "uglifyjs --compress --mangle -- src/components/app/app.js"
   },
   "authors": [
     "Sebastian Walter",
@@ -12,11 +13,11 @@
     "Timo Stricker"
   ],  
   
-  "dependencies": {
-    "angular": "^1.4"
-  },
-
   "devDependencies": {
-    "typescript": "git://github.com/mhegazy/typescript.git#v1.5-beta2"
+    "typescript": "git://github.com/mhegazy/typescript.git#v1.5-beta2",
+    "gulp-webserver": "^0.9.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp": "^3.8.11",
+    "http-server": "^0.8.0"
   }
 }
