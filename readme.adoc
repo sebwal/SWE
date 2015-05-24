@@ -1,11 +1,13 @@
-##Package Managers
-#### We use three package managers in this project: npm, bower and tsd. Each has a .json file for config  
+# Important Information for working with our project:
+
+## Package Managers
+We use three package managers in this project: npm, bower and tsd. Each has a .json file for config  
 
 * npm -> package.json  
 * bower -> bower.json 
 * tsd -> tsd.json
 
-#### and a folder for the packages
+and a folder for the packages
 
 * npm -> npm_modules 
 * bower -> bower_components 
