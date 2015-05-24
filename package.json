@@ -11,13 +11,17 @@
     "Sebastian Walter",
     "Pascal Tilli",
     "Timo Stricker"
-  ],  
-  
+  ],
   "devDependencies": {
-    "typescript": "git://github.com/mhegazy/typescript.git#v1.5-beta2",
-    "gulp-webserver": "^0.9.1",
-    "gulp-uglify": "^1.2.0",
     "gulp": "^3.8.11",
-    "http-server": "^0.8.0"
+    "gulp-concat": "^2.5.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-typescript": "^2.7.5",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "gulp-watch": "^4.2.4",
+    "gulp-webserver": "^0.9.1",
+    "typescript": "git://github.com/mhegazy/typescript.git#v1.5-beta2"
   }
 }

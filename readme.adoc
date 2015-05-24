@@ -1,4 +1,4 @@
-When a .ts file is changed or created, open command prompt, navigate to the project's root folder and execute
+<p>When a .ts file is changed or created, open command prompt, navigate to the project's root folder and execute
   >npm run compile
 This will generate (and overwrite) the app.js file corresponding to the .ts files referenced in _all.ts;
 If a .ts file is created, it has to be added to _all.ts (this will make the new class available in the other .ts classes and, as mentioned above, generate the ES code in app.js)
@@ -9,3 +9,4 @@ This will start the webserver, running on port 1337.
 
 To add a new shortcut for the command prompt, add a new key/value pair to the scripts attribute in package.json, value being the line which would be typed in the command prompt.
   Usage: >npm run -key-
+</p>
