@@ -8,9 +8,4 @@ When a .ts file is changed or created, open command prompt, navigate to the proj
 This will generate (and overwrite) the app.js file corresponding to the .ts files referenced in _all.ts;
 If a .ts file is created, it has to be added to _all.ts (this will make the new class available in the other .ts classes and, as mentioned above, generate the ES code in app.js)
 
-To open the view (index.html), open command prompt, ... (exactly as above), and execute
-  >npm run webserver
-This will start the webserver, running on port 1337.
-
-To add a new shortcut for the command prompt, add a new key/value pair to the scripts attribute in package.json, value being the line which would be typed in the command prompt.
-  Usage: >npm run -key-
+We also use the task runner gulp - to test our code, execute >gulp in the command prompt. This will run all tasks specified in gulpfile.js, such as uglify the app.js, start the webserver on port 1337, and whatever there is to come.
