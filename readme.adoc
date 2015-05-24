@@ -1,14 +1,14 @@
 We use three package managers in this project: npm, bower and tsd. Each has a .json file for config  
 
-*npm --> package.json  
-*bower --> bower.json 
-*tsd --> tsd.json
+* npm --> package.json  
+* bower --> bower.json 
+* tsd --> tsd.json
 
 and a folder for the packages
 
-*npm --> npm_modules 
-*bower --> bower_components 
-*tsd --> typings.
+* npm --> npm_modules 
+* bower --> bower_components 
+* tsd --> typings.
 
 To get all our required packages, open command prompt and execute 
 
@@ -16,9 +16,9 @@ To get all our required packages, open command prompt and execute
 
 to install bower and tsd (node has to be installed, environment variables have to be set), and then execute 
 
-*>npm install 
-*>bower install
-*>tsd update -so
+* >npm install 
+* >bower install
+* >tsd update -so
 
 This will download all packages specified in the .json files.
 
@@ -30,5 +30,5 @@ We also use the (totally awesome! :) ) task runner gulp. Run
 
 in command prompt (navigate to our project root folder first), this will run all tasks specified in gulpfile.js, for example: 
 
-*compile/transpile the .ts files and uglify the outcoming app.js file
-*start the webserver running on port 1337.
+* compile/transpile the .ts files and uglify the outcoming app.js file
+* start the webserver running on port 1337.
