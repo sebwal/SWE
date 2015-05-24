@@ -41,3 +41,5 @@ in command prompt (navigate to our project root folder first), this will run all
 
 * compile/transpile the .ts files and uglify the outcoming app.js file
 * start the webserver running on port 1337.
+
+Gulp also notices changes to the files in /src and automatically reruns some tasks and updates the browser.
