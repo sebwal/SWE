@@ -1,3 +1,4 @@
+##Package Managers
 #### We use three package managers in this project: npm, bower and tsd. Each has a .json file for config  
 
 * npm -> package.json  
@@ -10,7 +11,9 @@
 * bower -> bower_components 
 * tsd -> typings.
 
-## To get all our required packages, open command prompt and execute 
+## Get required Packages
+
+To get all our required packages, open command prompt and execute 
 
 >npm install -g bower tsd
 
@@ -22,7 +25,9 @@ to install bower and tsd (node has to be installed, environment variables have t
 
 This will download all packages specified in the .json files.
 
-## If a .ts file is created, it has to be added to _all.ts (this will make the new class available in the other .ts classes and it is needed to generate the ES code in app.js)
+## Adding .ts files to the project
+
+If a .ts file is created, it has to be added to _all.ts (this will make the new class available in the other .ts classes and it is needed to generate the ES code in app.js)
 
 ## Gulp
 
