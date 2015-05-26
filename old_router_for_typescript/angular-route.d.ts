@@ -3,7 +3,7 @@
 // Definitions by: Jonathan Park <https://github.com/park9140>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="angular.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 
 declare module "angular-route" {
     var _: string;
