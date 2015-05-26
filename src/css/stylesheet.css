@@ -1,0 +1,32 @@
+#headerdiv {
+	height: 150px;
+	width : 77%;
+	top: 0px;
+	left:0px;
+	position: relative;
+	float: right;
+}
+#sidebarNavigation {
+	height: 500px;
+	width: 23%;
+	left: 0px;
+	position: relative;
+	background-color: #EEEEEE;
+}
+#body {
+	position: relative;
+	float: right;
+	height: 500px;
+	width: 77%;
+}
+#navigation {
+	height: 100px;
+	top: 20px;
+	left: 250;
+}
+#placeholder {
+	position: relative;
+	height: 150px;
+	width: 23%;
+	text-align: center;
+}
