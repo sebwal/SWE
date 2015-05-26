@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     watch = require('gulp-watch'),
-    tsc = require('gulp-typescript');
+    tsc = require('gulp-typescript'),
+    jshint = require('gulp-jshint');
 
 //runs webserver    
 gulp.task('webserver', function(){
@@ -26,21 +27,31 @@ gulp.task('tsc', function(){
     }))
     .pipe(gulp.dest('./src/components/app'));
 });
-//uglifies app.js into app.uglified.js
+//uglifies app.js into app.min.js
 gulp.task('uglify', function(){
   gulp.src('./src/**/*.ts')
     .pipe(tsc({
       out: 'app.js'
     }))
     .pipe(uglify())
-    .pipe(concat('app.uglified.js'))
+    .pipe(concat('app.min.js'))
     .pipe(gulp.dest('./src/components/app'));
 });
+//
+gulp.task('jshint', function(){
+  return //gulp.src('./src/components/app/app.min.js')
+//    .pipe(jshint())
+//    .pipe(jshint.reporter('default'));
+    gulp.src('./src/components/app/app.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
 //runs the specified tasks whenever a change in the src folder is made (and saved)
-gulp.watch('./src/*', function(){
+gulp.watch('./src/**/*.ts', function(){
   gulp.run('tsc');
   gulp.run('uglify');
+  gulp.run('jshint');
 });
 
 //this defines the tasks that are run when the command '>gulp' is executed in command prompt
-gulp.task('default', ['uglify', 'webserver', 'tsc']);
+gulp.task('default', ['uglify', 'tsc', 'jshint','webserver']);

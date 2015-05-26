@@ -1,18 +1,61 @@
-<!DOCTYPE html>
-<html lang="de">	
-    <head>
-        <title>Webshop</title>
-    </head>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Web Shop</title>
+		
+		<!--LINKS-->
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+		<!---->
 
-	<body>
-        <div ng-app="shop" ng-controller="AppController as ctrl">            
-            <button id="btTest" ng-click="ctrl.test()">
-                Test
-            </button>
-        </div>
-        <script src="/bower_components/angularjs/angular.min.js"></script>
-        <script src="/../bower_components/jquery/dist/jquery.min.js"></script>      
-
-        <script src="components/app/app.uglified.js"></script>  
-    </body>
+		<!--SCRIPTS-->
+		<script src="/bower_components/angularjs/angular.min.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>      
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/bower_components/angular-route/angular-route.min.js"></script>
+		<!---->
+	</head>
+	<body ng-app="shop">
+		<div id="headerdiv">
+			<h1>Web Shop</h1>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      		<ul class="nav navbar-nav">
+		       		 	<li class="active"><a href="#">Konto</a></li>
+		        	 	<li class="#"><a href="#">Einkaufswagen</a></li>
+						<li class="#"><a href="#">Wunschzettel</a></li>
+						<li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
+				          <ul class="dropdown-menu" role="menu">
+				            <li><a href="#">Action</a></li>
+				            <li><a href="#">Another action</a></li>
+				            <li><a href="#">Something else here</a></li>
+				            <li class="divider"></li>
+				            <li><a href="#">Separated link</a></li>
+				            <li class="divider"></li>
+				            <li><a href="#">One more separated link</a></li>
+				          </ul>
+				        </li>
+		      		</ul>
+		    	</div>
+		  	   </div>
+			</nav>
+			
+		</div>
+		<div id="placeholder">
+<!--			<img src="Pictures/webshop.jpg" height="150px"/>-->
+		</div>
+		
+		<div id="body" ng-view></div>
+		
+		<div id="sidebarNavigation">			
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation" class="active"><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+			  <li role="presentation"><a href="#/showArticles"><span class="glyphicon glyphicon-align-justify"></span> Artikel anzeigen</a></li>
+			  <li role="presentation"><a href="#/addArticle"><span class="glyphicon glyphicon-plus"></span> Artikel hinzuf&uumlgen</a></li>
+			  <li role="presentation"><a href="#/removeArticle"><span class="glyphicon glyphicon-trash"></span> Artikel entfernen</a></li>
+			</ul>
+		</div>
+	</body>
 </html>

@@ -2,14 +2,15 @@
   "name": "shop",
   "version": "0.9",
   "authors": [
-	  "Sebastian Walter",
-	  "Pascal Tilli",
-	  "Timo Stricker"
+    "Sebastian Walter",
+    "Pascal Tilli",
+    "Timo Stricker"
   ],
-
   "dependencies": {
     "angularjs": "1.4.0-rc.2",
-    "bootstrap": "~3.3.4",    
-    "jquery": "2.1.4"
+    "bootstrap": "~3.3.4",
+    "jquery": "2.1.4",
+    "angular-ui-router": "~0.2.15",
+    "angular-route": "~1.3.15"
   }
 }
