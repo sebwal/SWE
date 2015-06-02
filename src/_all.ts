@@ -6,3 +6,4 @@
 /// <reference path="./components/article/removeArticle/removeArticleController.ts" />
 /// <reference path="./components/article/showArticles/showArticlesController.ts" />
 /// <reference path="../old_router_for_typescript/angular-route.d.ts" />
+/// <reference path="./components/sidebarNavigation/sidebarController.ts" />

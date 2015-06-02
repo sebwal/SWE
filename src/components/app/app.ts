@@ -24,9 +24,9 @@ module WebShop {
 //			controllerAs: 'addArticle'
 		})
 		.when('/removeArticle', {
-			templateUrl: 'components/article/removeArticle/removeArticle.html'//,
-//			controller: 'RemoveArticleController',
-//			controllerAs: 'removeArticle'
+			templateUrl: 'components/article/removeArticle/removeArticle.html',
+			controller: 'RemoveArticleController',
+			controllerAs: 'removeArticle'
 		})
 		.otherwise({
 			redirectTo: '/home'

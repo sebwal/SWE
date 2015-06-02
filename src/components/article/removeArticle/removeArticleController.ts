@@ -7,7 +7,7 @@ module WebShop{
 		article: Article;
 		
 		removeArticle(){
-			
+			alert("test");
 		}		
 	}
 	
