@@ -1,6 +1,6 @@
 /// <reference path="../../../_all.ts" />
 
-module WebShop{
+module Article{
 	'use strict';
 	
 	export class RemoveArticleController{

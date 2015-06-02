@@ -1,1 +1,7 @@
-<h1>show article</h1>
+<div ng-app="shop" ng-controller="ShowArticlesController as ctrl">
+	<div ng-repeat="article in ctrl.articles">
+		<img></img>
+		<p>name: {{ article.name }}</p>
+		<p>price: {{ article.price | currency }}</p>
+	</div>
+</div>
