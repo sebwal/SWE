@@ -25,7 +25,7 @@ gulp.task('tsc', function(){
     .pipe(tsc({
       out: 'app.js'
     }))
-    .pipe(gulp.dest('./src/components/app'));
+    .pipe(gulp.dest('./src/components/base/app'));
 });
 //uglifies app.js into app.min.js
 gulp.task('uglify', function(){
@@ -35,14 +35,14 @@ gulp.task('uglify', function(){
     }))
     .pipe(uglify())
     .pipe(concat('app.min.js'))
-    .pipe(gulp.dest('./src/components/app'));
+    .pipe(gulp.dest('./src/components/base/app'));
 });
 //
 gulp.task('jshint', function(){
   return //gulp.src('./src/components/app/app.min.js')
 //    .pipe(jshint())
 //    .pipe(jshint.reporter('default'));
-    gulp.src('./src/components/app/app.js')
+    gulp.src('./src/components/base/app/app.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
