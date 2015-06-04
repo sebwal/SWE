@@ -34,7 +34,6 @@ module Article{
 		}
 		
 		public loadAllArticles() {
-			console.log(this.articles);
 			this.articlesToShow = this.articles;
 		}
 		

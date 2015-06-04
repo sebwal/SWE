@@ -19,7 +19,7 @@ module Article{
 			for(var i = 0; i < this.articles.length; i++){
 				this.articles[i].imageUri = "./img/example" + (i + 1) + ".jpg";
 			}
-			console.log(this.articles);
+
 			return this.articles;
 		}
 	}

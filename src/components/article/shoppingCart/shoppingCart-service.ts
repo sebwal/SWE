@@ -11,7 +11,7 @@ module Article{
 			this.entries = [];
 		} 
 		
-	 	public addMock(){
+/*	 	public addMock(){
 		 	this.entries = [];
  			var articles = new Array<Article>();
 			articles.push(new Article(1, "regalA", Category.bedroom, 200, "subba regal!"));
@@ -23,18 +23,23 @@ module Article{
 				this.addArticle(articles[i], i+1);
 			}
 		}
-		 
+*/		 
 		public addArticle(article: Article, amount: number){
 			for(var i = 0; i < this.entries.length; i++){
-				if(this.entries[i].article.id == article.id){
+				if(this.entries[i].article.name === article.name){
 					this.entries[i].amount += amount;
+		
+					alert("Artikel wurde dem Warenkorb hinzugefügt");
 					return;
 				}
 			}
 			this.entries.push(new ShoppingCartEntry(article, amount));
+
+			alert("Artikel wurde dem Warenkorb hinzugefügt");
 		}
 		
 		public getAllEntries(): Array<ShoppingCartEntry>{
+			console.log(this.entries);
 			return this.entries;
 		}
 	}
