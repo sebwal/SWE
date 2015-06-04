@@ -8,9 +8,7 @@ module App{
 	app.config(function($routeProvider){
 		$routeProvider
 		.when('/home', {
-			templateUrl: 'components/home/home.html',
-			controller: 'HomeController',
-			controllerAs: 'ctrl'
+			templateUrl: 'components/home/home.html'
 		})
 		.when('/showArticles', {
 			templateUrl: 'components/article/showArticles/showArticles.html',
@@ -25,6 +23,11 @@ module App{
 		.when('/removeArticle', {
 			templateUrl: 'components/article/removeArticle/removeArticle.html',
 			controller: 'RemoveArticleController',
+			controllerAs: 'ctrl'
+		})
+		.when('/shoppingCart',{
+			templateUrl: 'components/article/shoppingCart/shoppingCart.html',
+			controller: 'ShoppingCartController',
 			controllerAs: 'ctrl'
 		})
 		.otherwise({
