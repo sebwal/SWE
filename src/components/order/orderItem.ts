@@ -4,8 +4,8 @@ module Order{
 	'use strict';
 		
 	export class OrderItem{
-		private article: Article.Article;
-		private amount: number;
+		article: Article.Article;
+		amount: number;
 		
 		constructor(article: Article.Article, amount: number){
 			this.article = article;
