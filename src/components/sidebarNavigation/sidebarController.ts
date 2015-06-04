@@ -16,5 +16,5 @@ module WebShop{
 	}
 	
 	angular.module('shop')
-	.controller('SidebarController', SidebarController);
+	.controller('SidebarController', WebShop.SidebarController);
 }
