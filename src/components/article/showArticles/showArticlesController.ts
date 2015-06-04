@@ -6,8 +6,8 @@ module Article{
 	export class ShowArticlesController{
 		private articles: Article[];
 		private articlesToShow: Article[];
-		private articleService: ArticleService;
 		private shoppingCartService: ShoppingCartService;
+		private showArticlesService: ShowArticlesService;
 		
 //		static $inject = ['ArticleService'];
 //		constructor(articleService: ArticleService){
@@ -15,13 +15,18 @@ module Article{
 //			this.articles = this.articleService.getAllArticles();
 //		}
 		
-		static $inject = ['ShoppingCartService', 'ArticleService'];
-		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService) {
+		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService'];
+		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService, showArticlesService: ShowArticlesService) {
 			this.shoppingCartService = shoppingCartService;
 			this.articles = articleService.getAllArticles();
+			this.showArticlesService = showArticlesService;
 			
-			
-			this.loadAllArticles();			
+			this.loadArticlesOfCategory(showArticlesService.getCategory());
+		}
+		
+		public getCurrentCategory(){
+			this.loadArticlesOfCategory(this.showArticlesService.getCategory());
+			return this.showArticlesService.getCategory();		
 		}
 		
 		public getArticlesToShow(): Array<Article> {
@@ -33,7 +38,7 @@ module Article{
 			this.articlesToShow = this.articles;
 		}
 		
-		public loadArticlesOfCategory(category: string) {
+		public loadArticlesOfCategory(category: Category) {
 			this.articlesToShow = [];
 			for(var i = 0; i < this.articles.length; i++){
 				if(this.articles[i].category === category){

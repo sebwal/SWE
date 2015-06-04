@@ -25,12 +25,12 @@
 			  <div class="container-fluid">
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      		<ul class="nav navbar-nav">
-						<li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
+						<li class="dropdown" ng-controller="AppController as ctrl">
+				          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
 				          <ul class="dropdown-menu" role="menu">
-				            <li><a href="#">Wohn- & Esszimmer</a></li>
-				            <li><a href="#">Küchen</a></li>
-				            <li><a href="#">Schlafen</a></li>
+				            <li><a href="#/showArticles" ng- ng-click="ctrl.setArticleCategory(0)">Wohn- & Esszimmer</a></li>
+				            <li><a href="#/showArticles" ng-click="ctrl.setArticleCategory(1)">Küchen</a></li>
+				            <li><a href="#/showArticles" ng-click="ctrl.setArticleCategory(2)">Schlafen</a></li>
 				            <li class="divider"></li>
 				            <li><a href="#">Separated link</a></li>
 				            <li class="divider"></li>
@@ -69,7 +69,6 @@
 			  <li role="presentation" ng-class="{ active: isActive('/wishlist')}"><a href="#/wishlist"><span class="glyphicon glyphicon-piggy-bank"></span> Wunschliste</a></li>
 			  <li role="presentation" ng-class="{ active: isActive('/orderHistory')}"><a href="#/orderHistory"><span class="glyphicon glyphicon-ok-sign"></span> Bestellungen</a></li>
 			</ul>
-<!--			<button ng-click="SidebarController.test()">Test</button>
--->		</div>
+		</div>
 	</body>
 </html>
