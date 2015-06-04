@@ -1,5 +1,5 @@
 #headerdiv {
-	height: 150px;
+	height: 15%;
 	width : 77%;
 	top: 0px;
 	left:0px;
@@ -7,17 +7,19 @@
 	float: right;
 }
 #sidebarNavigation {
-	height: 500px;
+	min-height: 85%;
 	width: 23%;
 	left: 0px;
 	position: relative;
 	background-color: #EEEEEE;
+	height: auto !important;
 }
 #body {
 	position: relative;
 	float: right;
-	height: 500px;
+	min-height: 85%;
 	width: 77%;
+	height: auto !important;
 }
 #navigation {
 	height: 100px;
@@ -26,7 +28,7 @@
 }
 #placeholder {
 	position: relative;
-	height: 150px;
+	height: 15%;
 	width: 23%;
 	text-align: center;
 }

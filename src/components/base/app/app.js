@@ -19,8 +19,10 @@ var App;
 /// <reference path="../../_all.ts" />
 var Article;
 (function (_Article) {
+    'use strict';
     var Article = (function () {
-        function Article(name, price, description) {
+        function Article(id, name, price, description) {
+            this.id = id;
             this.name = name;
             this.price = price;
             this.description = description;
@@ -64,14 +66,44 @@ var Article;
 (function (Article) {
     'use strict';
     var ShowArticlesController = (function () {
-        function ShowArticlesController(articleService) {
-            this.articleService = articleService;
-            this.articles = this.articleService.getAllArticles();
+        function ShowArticlesController(shoppingCartService, articleService) {
+            this.shoppingCartService = shoppingCartService;
+            this.articles = articleService.getAllArticles();
+            this.loadAllArticles();
         }
-        ShowArticlesController.prototype.getAllArticles = function () {
-            return this.articles;
+        ShowArticlesController.prototype.getArticlesToShow = function () {
+            return this.articlesToShow;
         };
-        ShowArticlesController.$inject = ['ArticleService'];
+        ShowArticlesController.prototype.loadAllArticles = function () {
+            console.log(this.articles);
+            this.articlesToShow = this.articles;
+        };
+        ShowArticlesController.prototype.loadArticlesOfCategory = function (category) {
+            this.articlesToShow = [];
+            for (var i = 0; i < this.articles.length; i++) {
+                if (this.articles[i].category === category) {
+                    this.articlesToShow.push(this.articles[i]);
+                }
+            }
+        };
+        ShowArticlesController.prototype.loadArticlesContainingSearchText = function (searchText) {
+            this.articlesToShow = [];
+            for (var i = 0; i < this.articles.length; i++) {
+                var currArticle = this.articles[i];
+                if (currArticle.name.search(searchText) || currArticle.description.search(searchText)) {
+                    this.articlesToShow.push(currArticle);
+                }
+            }
+        };
+        ShowArticlesController.prototype.addToShoppingCart = function (article) {
+            this.shoppingCartService.addArticle(article, 1);
+        };
+        //		static $inject = ['ArticleService'];
+        //		constructor(articleService: ArticleService){
+        //			this.articleService = articleService;
+        //			this.articles = this.articleService.getAllArticles();
+        //		}
+        ShowArticlesController.$inject = ['ShoppingCartService', 'ArticleService'];
         return ShowArticlesController;
     })();
     Article.ShowArticlesController = ShowArticlesController;
@@ -95,7 +127,7 @@ var WebShop;
         return SidebarController;
     })();
     WebShop.SidebarController = SidebarController;
-    angular.module('shop').controller('SidebarController', SidebarController);
+    angular.module('shop').controller('SidebarController', WebShop.SidebarController);
 })(WebShop || (WebShop = {}));
 /// <reference path="../../_all.ts"/>
 var App;
@@ -104,9 +136,7 @@ var App;
     var app = angular.module('shop');
     app.config(function ($routeProvider) {
         $routeProvider.when('/home', {
-            templateUrl: 'components/home/home.html',
-            controller: 'HomeController',
-            controllerAs: 'ctrl'
+            templateUrl: 'components/home/home.html'
         }).when('/showArticles', {
             templateUrl: 'components/article/showArticles/showArticles.html',
             controller: 'ShowArticlesController',
@@ -119,6 +149,10 @@ var App;
             templateUrl: 'components/article/removeArticle/removeArticle.html',
             controller: 'RemoveArticleController',
             controllerAs: 'ctrl'
+        }).when('/shoppingCart', {
+            templateUrl: 'components/article/shoppingCart/shoppingCart.html',
+            controller: 'ShoppingCartController',
+            controllerAs: 'ctrl'
         }).otherwise({
             redirectTo: '/home'
         });
@@ -130,6 +164,8 @@ var Customer;
     var Customer = (function () {
         function Customer() {
         }
+        Customer.prototype.test = function () {
+        };
         return Customer;
     })();
     _Customer.Customer = Customer;
@@ -137,8 +173,15 @@ var Customer;
 /// <reference path="../../_all.ts" />
 var Order;
 (function (_Order) {
+    'use strict';
     var Order = (function () {
-        function Order() {
+        function Order(orderItems) {
+            this.overAllPrice = 0;
+            for (var i = 0; i < this.orderItems.length; i++) {
+                this.overAllPrice += this.orderItems[i].amount * this.orderItems[i].article.price;
+            }
+            this.orderItems = orderItems;
+            this.id = Order.globalId++;
         }
         return Order;
     })();
@@ -156,6 +199,149 @@ var Article;
     })();
     Article.ShoppingCartEntry = ShoppingCartEntry;
 })(Article || (Article = {}));
+/// <reference path="../../_all.ts" />
+var Article;
+(function (Article) {
+    'use strict';
+    var ArticleService = (function () {
+        function ArticleService() {
+            this.articleUri = "http://localhost:8443/shop/rest/artikel"; //localhost might have to be exchanged with ip if wildfly is running in VM
+        }
+        ArticleService.prototype.getAllArticles = function () {
+            /*			$.getJSON(this.articleUri, art => {this.articles = art;});
+                        return this.articles;
+            */
+            this.articles = [];
+            this.articles.push(new Article.Article(1, "regalA", 200, "subba regal!"));
+            this.articles.push(new Article.Article(2, "regalB", 400, "top regal!!"));
+            this.articles.push(new Article.Article(3, "regalC", 500, "hammer regal!!!"));
+            for (var i = 0; i < this.articles.length; i++) {
+                this.articles[i].imageUri = "./img/example" + (i + 1) + ".jpg";
+            }
+            return this.articles;
+        };
+        return ArticleService;
+    })();
+    Article.ArticleService = ArticleService;
+    var app = angular.module('shop');
+    app.service('ArticleService', ArticleService);
+})(Article || (Article = {}));
+/// <reference path="../../../_all.ts" />
+var Article;
+(function (Article) {
+    'use strict';
+    var ShoppingCartController = (function () {
+        function ShoppingCartController($scope, shoppingCartService, orderService) {
+            $scope.entries = shoppingCartService.getAllEntries();
+            this.shoppingCartService = shoppingCartService;
+            this.blub = true;
+            this.orderService = orderService;
+        }
+        ShoppingCartController.prototype.getAllEtries = function () {
+            console.log(this.entries);
+            return this.entries;
+        };
+        ShoppingCartController.prototype.loadMock = function () {
+            this.shoppingCartService.addMock();
+            this.entries = this.shoppingCartService.getAllEntries();
+            this.blub = false;
+        };
+        ShoppingCartController.prototype.increaseAmount = function (entry) {
+            entry.amount++;
+        };
+        ShoppingCartController.prototype.decreaseAmount = function (entry) {
+            if (entry.amount === 1) {
+                this.entries.splice(this.entries.indexOf(entry), 1);
+            }
+            entry.amount--;
+        };
+        ShoppingCartController.prototype.orderAllEntries = function () {
+            var orderItems = new Array();
+            for (var i = 0; i < this.entries.length; i++) {
+                orderItems.push(new Order.OrderItem(this.entries[i].article, this.entries[i].amount));
+            }
+            this.orderService.createOrder(orderItems);
+        };
+        ShoppingCartController.$inject = ['$scope', 'ShoppingCartService', 'OrderService'];
+        return ShoppingCartController;
+    })();
+    Article.ShoppingCartController = ShoppingCartController;
+    angular.module('shop').controller('ShoppingCartController', ShoppingCartController);
+})(Article || (Article = {}));
+/// <reference path="../../../_all.ts" />
+var Article;
+(function (Article) {
+    'use strict';
+    var ShoppingCartService = (function () {
+        function ShoppingCartService() {
+            this.entries = [];
+        }
+        ShoppingCartService.prototype.addMock = function () {
+            this.entries = [];
+            var articles = new Array();
+            articles.push(new Article.Article(1, "regalA", 200, "subba regal!"));
+            articles.push(new Article.Article(2, "regalB", 400, "top regal!!"));
+            articles.push(new Article.Article(3, "regalC", 500, "hammer regal!!!"));
+            for (var i = 0; i < articles.length; i++) {
+                articles[i].imageUri = "./img/example" + (i + 1) + ".jpg";
+                this.addArticle(articles[i], i + 1);
+            }
+        };
+        ShoppingCartService.prototype.addArticle = function (article, amount) {
+            for (var i = 0; i < this.entries.length; i++) {
+                if (this.entries[i].article.id == article.id) {
+                    this.entries[i].amount += amount;
+                    return;
+                }
+            }
+            this.entries.push(new Article.ShoppingCartEntry(article, amount));
+        };
+        ShoppingCartService.prototype.getAllEntries = function () {
+            return this.entries;
+        };
+        return ShoppingCartService;
+    })();
+    Article.ShoppingCartService = ShoppingCartService;
+    var app = angular.module('shop');
+    app.service('ShoppingCartService', ShoppingCartService);
+})(Article || (Article = {}));
+/// <reference path="../../_all.ts" />
+var Order;
+(function (Order) {
+    'use strict';
+    var OrderItem = (function () {
+        function OrderItem(article, amount) {
+            this.article = article;
+            this.amount = amount;
+        }
+        return OrderItem;
+    })();
+    Order.OrderItem = OrderItem;
+})(Order || (Order = {}));
+/// <reference path="../../_all.ts" />
+var Order;
+(function (Order) {
+    'use strict';
+    var OrderService = (function () {
+        function OrderService() {
+            this.orderUri = "http://localhost:8443/shop/rest/bestellungen"; //localhost might have to be exchanged with ip if wildfly is running in VM
+        }
+        OrderService.prototype.getAllOrders = function () {
+            var orders;
+            $.getJSON(this.orderUri, function (ord) {
+                orders = ord;
+            });
+            return orders;
+        };
+        OrderService.prototype.createOrder = function (orderItems) {
+            this.orders.push(new Order.Order(orderItems));
+        };
+        return OrderService;
+    })();
+    Order.OrderService = OrderService;
+    var app = angular.module('shop');
+    app.service('OrderService', OrderService);
+})(Order || (Order = {}));
 /// <reference path="../typings/tsd.d.ts" />
 /// <reference path="./components/base/app/app.ts" />
 /// <reference path="./components/base/app/appController.ts" />
@@ -168,28 +354,12 @@ var Article;
 /// <reference path="./components/base/routing.ts" />
 /// <reference path="./components/customer/customer.ts" />
 /// <reference path="./components/order/order.ts" />
-/// <reference path="./components/article/shopping_cart/shoppingCartEntry.ts" />
-/// <reference path="../../_all.ts" />
-var Article;
-(function (Article) {
-    'use strict';
-    var ArticleService = (function () {
-        function ArticleService() {
-            this.articleUri = "http://localhost:8443/shop/rest/artikel"; //localhost might have to be exchanged with ip if wildfly is running in VM
-        }
-        ArticleService.prototype.getAllArticles = function () {
-            var articles;
-            $.getJSON(this.articleUri, function (art) {
-                articles = art;
-            });
-            return articles;
-        };
-        return ArticleService;
-    })();
-    Article.ArticleService = ArticleService;
-    var app = angular.module('shop');
-    app.service('ArticleService', ArticleService);
-})(Article || (Article = {}));
+/// <reference path="./components/article/shoppingCart/shoppingCartEntry.ts" />
+/// <reference path="./components/article/article-service.ts" />
+/// <reference path="./components/article/shoppingCart/shoppingCartController.ts" />
+/// <reference path="./components/article/shoppingCart/shoppingCart-service.ts" />
+/// <reference path="./components/order/orderItem.ts" />
+/// <reference path="./components/order/order-service.ts" />
 /// <reference path="../../_all.ts" />
 var Customer;
 (function (Customer) {
@@ -211,46 +381,3 @@ var Customer;
     var app = angular.module('shop');
     app.service('CustomerService', CustomerService);
 })(Customer || (Customer = {}));
-/// <reference path="../../_all.ts" />
-var Order;
-(function (Order) {
-    'use strict';
-    var OrderService = (function () {
-        function OrderService() {
-            this.orderUri = "http://localhost:8443/shop/rest/bestellungen"; //localhost might have to be exchanged with ip if wildfly is running in VM
-        }
-        OrderService.prototype.getAllOrders = function () {
-            var orders;
-            $.getJSON(this.orderUri, function (ord) {
-                orders = ord;
-            });
-            return orders;
-        };
-        return OrderService;
-    })();
-    Order.OrderService = OrderService;
-    var app = angular.module('shop');
-    app.service('OrderService', OrderService);
-})(Order || (Order = {}));
-/// <reference path="../../../_all.ts" />
-var Article;
-(function (Article) {
-    'use strict';
-    var ShoppingCartService = (function () {
-        function ShoppingCartService() {
-        }
-        ShoppingCartService.prototype.addArticle = function (article, amount) {
-            for (var i = 0; i < this.entries.length; i++) {
-                if (this.entries[i].article.id == article.id) {
-                    this.entries[i].amount += amount;
-                    return;
-                }
-            }
-            this.entries.push(new Article.ShoppingCartEntry(article, amount));
-        };
-        return ShoppingCartService;
-    })();
-    Article.ShoppingCartService = ShoppingCartService;
-    var app = angular.module('shop');
-    app.service('ShoppingCartService', ShoppingCartService);
-})(Article || (Article = {}));
