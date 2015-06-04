@@ -5,7 +5,9 @@ module Article{
 	
 	export class ShowArticlesController{
 		private articles: Article[];
+		private articlesToShow: Article[];
 		private articleService: ArticleService;
+		private shoppingCartService: ShoppingCartService;
 		
 //		static $inject = ['ArticleService'];
 //		constructor(articleService: ArticleService){
@@ -13,29 +15,46 @@ module Article{
 //			this.articles = this.articleService.getAllArticles();
 //		}
 		
-		constructor(){
-			this.articles = new Array<Article>();
-			this.articles.push(new Article("regalA", 200, "subba regal!"));
-			this.articles.push(new Article("regalB", 400, "top regal!!"));
-			this.articles.push(new Article("regalC", 500, "hammer regal!!!"));
+		static $inject = ['ShoppingCartService', 'ArticleService'];
+		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService) {
+			this.shoppingCartService = shoppingCartService;
+			this.articles = articleService.getAllArticles();
 			
-			for(var i = 0; i < this.articles.length; i++){
-				this.articles[i].imageUri = "./img/example" + (i + 1) + ".jpg";
-			}
+			
+			this.loadAllArticles();			
 		}
 		
-		public getAllArticles(): Array<Article>{
-			return this.articles;
+		public getArticlesToShow(): Array<Article> {
+			return this.articlesToShow;
 		}
 		
-		public getArticlesOfCategory(category: string): Array<Article>{
-			var ret = Array<Article>();
+		public loadAllArticles() {
+			console.log(this.articles);
+			this.articlesToShow = this.articles;
+		}
+		
+		public loadArticlesOfCategory(category: string) {
+			this.articlesToShow = [];
 			for(var i = 0; i < this.articles.length; i++){
 				if(this.articles[i].category === category){
-					ret.push(this.articles[i]);
+					this.articlesToShow.push(this.articles[i]);
 				}
 			}
-			return ret;
+		}
+		
+		public loadArticlesContainingSearchText(searchText: string){
+			this.articlesToShow = [];
+			for(var i = 0; i < this.articles.length; i++){
+				var currArticle = this.articles[i];
+				if(currArticle.name.search(searchText) 
+					|| currArticle.description.search(searchText)){
+						this.articlesToShow.push(currArticle);
+				}
+			}
+		}
+		
+		public addToShoppingCart(article: Article){
+			this.shoppingCartService.addArticle(article, 1);
 		}
 	}
 	
