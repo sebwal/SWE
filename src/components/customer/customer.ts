@@ -5,5 +5,8 @@ module Customer{
 		public constructor(){
 			
 		}
+		test(){
+			
+		}
 	}
 }

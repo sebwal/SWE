@@ -64,11 +64,12 @@
 		<div id="sidebarNavigation">			
 			<ul class="nav nav-pills nav-stacked">
 			  <li role="presentation" ng-class="{ active: isActive('/home')}"><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-			  <li role="presentation" ng-class="{ active: isActive('/showArticles')}"><a href="#/showArticles"><span class="glyphicon glyphicon-align-justify"></span> Warenkorb</a></li>
-			  <li role="presentation" ng-class="{ active: isActive('/addArticle')}"><a href="#/addArticle"><span class="glyphicon glyphicon-plus"></span> Wunschzettel</a></li>
-			  <li role="presentation" ng-class="{ active: isActive('/removeArticle')}"><a href="#/removeArticle"><span class="glyphicon glyphicon-trash"></span> Bestellungen</a></li>
+
+			  <li role="presentation" ng-class="{ active: isActive('/shoppingCart')}"><a href="#/shoppingCart"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb</a></li>
+			  <li role="presentation" ng-class="{ active: isActive('/wishlist')}"><a href="#/wishlist"><span class="glyphicon glyphicon-piggy-bank"></span> Wunschliste</a></li>
+			  <li role="presentation" ng-class="{ active: isActive('/orderHistory')}"><a href="#/orderHistory"><span class="glyphicon glyphicon-ok-sign"></span> Bestellungen</a></li>
 			</ul>
-			<button ng-click="SidebarController.test()">Test</button>
-		</div>
+<!--			<button ng-click="SidebarController.test()">Test</button>
+-->		</div>
 	</body>
 </html>

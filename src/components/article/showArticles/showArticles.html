@@ -1,7 +1,19 @@
-<div ng-app="shop" ng-controller="ShowArticlesController as ctrl">
-	<div ng-repeat="article in ctrl.articles">
-		<img></img>
-		<p>name: {{ article.name }}</p>
-		<p>price: {{ article.price | currency }}</p>
-	</div>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4" ng-repeat="article in ctrl.getArticlesToShow()">
+            <div class="thumbnail">
+                <img src="{{ article.imageUri }}">
+                <div class="caption">
+                    <h3>{{ article.name }}</h3>
+                    <strong>Details: </strong>
+					<p>{{ article.description}}</p>
+                    <strong>Price: </strong> {{ article.price | currency : '€' }}                    
+                </div>
+                <div>
+                    <button ng-click="ctrl.addToShoppingCart(article)">In den Warenkorb</button>
+                    <button disabled>Zur Wunschliste hinzufügen</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

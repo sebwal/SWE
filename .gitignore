@@ -1,6 +1,5 @@
 /typings
 /node_modules
 /bower_components
-/src/components/app/app.min.js
-/src/components/app/app.js
-/src/components/app/app.js.map
+/src/components/base/app/app.min.js
+/src/components/base/app/app.js
