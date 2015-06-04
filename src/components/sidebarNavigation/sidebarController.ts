@@ -16,5 +16,5 @@ module WebShop{
 	}
 	
 	angular.module('shop')
-	.controller('SidebarController', ["$scope", "debounce", SidebarController]);
+	.controller('SidebarController', SidebarController);
 }
