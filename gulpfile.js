@@ -39,10 +39,7 @@ gulp.task('uglify', function(){
 });
 //
 gulp.task('jshint', function(){
-  return //gulp.src('./src/components/app/app.min.js')
-//    .pipe(jshint())
-//    .pipe(jshint.reporter('default'));
-    gulp.src('./src/components/base/app/app.js')
+  return gulp.src('./src/components/base/app/app.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
