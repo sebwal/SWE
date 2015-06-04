@@ -13,8 +13,18 @@ module Article{
 			this.articles = this.articleService.getAllArticles();
 		}
 		
-		public getAllArticles(){
+		public getAllArticles(): Array<Article>{
 			return this.articles;
+		}
+		
+		public getArticlesOfCategory(category: string): Array<Article>{
+			var ret = Array<Article>();
+			for(var i = 0; i < this.articles.length; i++){
+				if(this.articles[i].category === category){
+					ret.push(this.articles[i]);
+				}
+			}
+			return ret;
 		}
 	}
 	

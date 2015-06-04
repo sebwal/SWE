@@ -11,3 +11,4 @@
 /// <reference path="./components/customer/customer.ts" />
 /// <reference path="./components/order/order.ts" />
 /// <reference path="./components/article/shopping_cart/shoppingCartEntry.ts" />
+/// <reference path="./components/article/article-service.ts" />

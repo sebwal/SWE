@@ -1,6 +1,8 @@
 /// <reference path="../../_all.ts" />
 
 module Article{
+	'use strict';
+	
 	export class Article{
 		static globalId: number;
 		id: number;
@@ -8,6 +10,7 @@ module Article{
 		description: string;
 		price: number;
 		image: ImageData;
+		category: string;
 		
 		constructor(name: string, price: number, description: string){
 			this.name = name;
