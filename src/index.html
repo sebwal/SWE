@@ -22,8 +22,8 @@
 		<div id="headerdiv">
 			<h1>Web Shop</h1>
 			<nav class="navbar navbar-default">
-			  <div class="container-fluid">
-		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <div class="container-fluid" >
+		    	<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
 		      		<ul class="nav navbar-nav">
 						<li class="dropdown" ng-controller="AppController as ctrl">
 				          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
@@ -37,21 +37,20 @@
 				            <li><a href="#">One more separated link</a></li>
 				          </ul>
 				        </li>
-						<form class="navbar-form navbar-left" role="search">
-					        <div class="form-group">
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
-							  <ul class="dropdown-menu" role="menu">
-						          <li><a href="#">Action</a></li>
-						          <li><a href="#">Another action</a></li>
-						          <li><a href="#">Something else here</a></li>
-						          <li class="divider"></li>
-						          <li><a href="#">Separated link</a></li>
-					          </ul>
-							  <input type="text" class="form-control" aria-label="...">
-					        </div>
-				      	</form>	
 		      		</ul>
-		    	</div>
+					<form class="navbar-form pull-left" role="search">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Search...">
+				        <button class="btn btn-default" type="button">Go!</button>
+			        </div>
+					</form>
+					<form class="navbar-form pull-right" role="search">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="E-Mail">
+					  <input type="text" class="form-control" placeholder="Password">
+			        </div>
+			        <button type="submit" class="btn btn-default">Login</button>
+			      </form>
 		  	   </div>
 			</nav>
 		</div>
@@ -61,7 +60,7 @@
 		
 		<div id="body" ng-view></div>
 		
-		<div id="sidebarNavigation">			
+		<div id="sidebarNavigation" ng-controller="SidebarController as sc">			
 			<ul class="nav nav-pills nav-stacked">
 			  <li role="presentation" ng-class="{ active: isActive('/home')}"><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 
@@ -69,6 +68,7 @@
 			  <li role="presentation" ng-class="{ active: isActive('/wishlist')}"><a href="#/wishlist"><span class="glyphicon glyphicon-piggy-bank"></span> Wunschliste</a></li>
 			  <li role="presentation" ng-class="{ active: isActive('/orderHistory')}"><a href="#/orderHistory"><span class="glyphicon glyphicon-ok-sign"></span> Bestellungen</a></li>
 			</ul>
+			<button ng-click="sc.test()">Test</button>
 		</div>
 	</body>
 </html>
