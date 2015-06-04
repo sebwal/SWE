@@ -9,8 +9,8 @@ module Article{
 		name: string;
 		description: string;
 		price: number;
-		image: ImageData;
 		category: string;
+		imageUri: string;
 		
 		constructor(name: string, price: number, description: string){
 			this.name = name;
