@@ -127,7 +127,7 @@ var WebShop;
         return SidebarController;
     })();
     WebShop.SidebarController = SidebarController;
-    angular.module('shop').controller('SidebarController', WebShop.SidebarController);
+    angular.module('shop').controller('SidebarController', ["$scope", "debounce", SidebarController]);
 })(WebShop || (WebShop = {}));
 /// <reference path="../../_all.ts"/>
 var App;
