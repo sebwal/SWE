@@ -35,6 +35,8 @@ If a .ts file is created, it has to be added to _all.ts (this will make the new 
 
 We also use the (totally awesome! :) ) task runner gulp. Run 
 
+>npm install -g gulp
+
 >gulp
 
 in command prompt (navigate to our project root folder first), this will run all tasks specified in gulpfile.js, for example: 
