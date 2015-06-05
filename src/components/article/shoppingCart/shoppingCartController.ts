@@ -7,25 +7,16 @@ module Article{
 		private entries: ShoppingCartEntry[];
 		shoppingCartService: ShoppingCartService;
 		orderService: Order.OrderService;
-		blub: boolean;
 		
-		static $inject = ['$scope', 'ShoppingCartService', 'OrderService'];		
-		constructor($scope: ShoppingCartController, shoppingCartService: ShoppingCartService, orderService: Order.OrderService){
-			$scope.entries = shoppingCartService.getAllEntries();						
+		static $inject = ['ShoppingCartService', 'OrderService'];		
+		constructor(shoppingCartService: ShoppingCartService, orderService: Order.OrderService){
+			this.entries = shoppingCartService.getAllEntries();						
 			this.shoppingCartService = shoppingCartService;
-			this.blub = true;
 			this.orderService = orderService;
 		}
 		
-		public getAllEtries(): Array<ShoppingCartEntry>{
-			console.log(this.entries);
+		public getAllEntries(): Array<ShoppingCartEntry>{
 			return this.entries;
-		}
-		
-		public loadMock(){
-			this.shoppingCartService.addMock();
-			this.entries = this.shoppingCartService.getAllEntries();
-			this.blub = false;
 		}
 		
 		public increaseAmount(entry: ShoppingCartEntry){

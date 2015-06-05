@@ -30,6 +30,11 @@ module App{
 			controller: 'ShoppingCartController',
 			controllerAs: 'ctrl'
 		})
+		.when('/wishlist',{
+			templateUrl: 'components/article/wishlist/wishlist.html',
+			controller: 'WishlistController',
+			controllerAs: 'ctrl'
+		})
 		.otherwise({
 			redirectTo: '/home'
 		});

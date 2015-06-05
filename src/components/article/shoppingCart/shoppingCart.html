@@ -1,8 +1,6 @@
-<button ng-click="ctrl.loadMock()" ng-show="ctrl.blub">get mock</button>
-
 <div class="col-sm-12">
     <div class="row">
-        <div class="col-sm-4" ng-show="ctrl.entries.length > 0" ng-repeat="entry in ctrl.entries">
+        <div class="col-sm-4" ng-show="ctrl.entries.length > 0" ng-repeat="entry in ctrl.getAllEntries()">
             <div class="thumbnail">
                 <img src="{{ entry.article.imageUri }}">
                 <div class="caption">
@@ -17,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div ng-hide="ctrl.entries.length > 0 || ctrl.blub">
+        <div ng-hide="ctrl.getAllEntries.length > 0">
             <h4>Keine Artikel im Warenkorb. Gehen sie shoppen! :)</h4>
         </div>
     </div>

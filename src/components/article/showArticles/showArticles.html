@@ -1,3 +1,4 @@
+<h3 ng-hide=true>Anzeige zur Kategorie "{{ ctrl.getCurrentCategory() }}":</h3>
 <div class="col-sm-12">
     <div class="row">
         <div class="col-sm-4" ng-repeat="article in ctrl.getArticlesToShow()">
@@ -11,7 +12,7 @@
                 </div>
                 <div>
                     <button ng-click="ctrl.addToShoppingCart(article)">In den Warenkorb</button>
-                    <button disabled>Zur Wunschliste hinzufügen</button>
+                    <button ng-click="ctrl.addToWishlist(article)">Zur Wunschliste hinzufügen</button>
                 </div>
             </div>
         </div>
