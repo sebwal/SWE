@@ -7,6 +7,7 @@
 /// <reference path="./components/article/showArticles/showArticlesController.ts" />
 /// <reference path="../old_router_for_typescript/angular-route.d.ts" />
 /// <reference path="./components/sidebarNavigation/sidebarController.ts" />
+/// <reference path="./components/sidebarNavigation/sidebarElement.ts" />
 /// <reference path="./components/base/routing.ts" />
 /// <reference path="./components/customer/customer.ts" />
 /// <reference path="./components/order/order.ts" />

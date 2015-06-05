@@ -5,16 +5,29 @@ module WebShop{
 	
 	export class SidebarController{
 		
+		elements : SidebarElement[];
+		
+		constructor(){
+			this.elements.push(new SidebarElement("Home"));
+			this.elements.push(new SidebarElement("Warenkorb"));
+			this.elements.push(new SidebarElement("Wunschliste"));
+			this.elements.push(new SidebarElement("Bestellungen"));
+		}
+		
+		public alertElements(){
+			alert("test");
+		}
+		
 		isActive($scope,$location){
 			$scope.isActive = function (viewLocation) { 
 	        return viewLocation === $location.path();
 	    	};
 		}
-		test(){
-			alert("test");
-		}
+		
+		
+		
 	}
 	
 	angular.module('shop')
-	.controller('SidebarController', WebShop.SidebarController);
+	.controller('SidebarController', SidebarController);
 }
