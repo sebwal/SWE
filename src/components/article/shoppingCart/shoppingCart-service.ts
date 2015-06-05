@@ -11,19 +11,6 @@ module Article{
 			this.entries = [];
 		} 
 		
-/*	 	public addMock(){
-		 	this.entries = [];
- 			var articles = new Array<Article>();
-			articles.push(new Article(1, "regalA", Category.bedroom, 200, "subba regal!"));
-			articles.push(new Article(2, "regalB", Category.bedroom, 400, "top regal!!"));
-			articles.push(new Article(3, "regalC", Category.bedroom, 500, "hammer regal!!!"));
-			
-			for(var i = 0; i < articles.length; i++){
-				articles[i].imageUri = "./img/example" + (i + 1) + ".jpg";
-				this.addArticle(articles[i], i+1);
-			}
-		}
-*/		 
 		public addArticle(article: Article, amount: number){
 			for(var i = 0; i < this.entries.length; i++){
 				if(this.entries[i].article.name === article.name){
@@ -39,7 +26,6 @@ module Article{
 		}
 		
 		public getAllEntries(): Array<ShoppingCartEntry>{
-			console.log(this.entries);
 			return this.entries;
 		}
 	}

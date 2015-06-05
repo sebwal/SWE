@@ -7,13 +7,11 @@ module Article{
 		private entries: ShoppingCartEntry[];
 		shoppingCartService: ShoppingCartService;
 		orderService: Order.OrderService;
-		blub: boolean;
 		
 		static $inject = ['ShoppingCartService', 'OrderService'];		
 		constructor(shoppingCartService: ShoppingCartService, orderService: Order.OrderService){
 			this.entries = shoppingCartService.getAllEntries();						
 			this.shoppingCartService = shoppingCartService;
-			/*this.blub = true;*/
 			this.orderService = orderService;
 		}
 		
@@ -21,12 +19,6 @@ module Article{
 			return this.entries;
 		}
 		
-/*		public loadMock(){
-			this.shoppingCartService.addMock();
-			this.entries = this.shoppingCartService.getAllEntries();
-			this.blub = false;
-		}
-*/		
 		public increaseAmount(entry: ShoppingCartEntry){
 			entry.amount++;
 		}

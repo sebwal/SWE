@@ -17,3 +17,4 @@
 /// <reference path="./components/article/shoppingCart/shoppingCart-service.ts" />
 /// <reference path="./components/order/orderItem.ts" />
 /// <reference path="./components/order/order-service.ts" />
+/// <reference path="./components/article/wishlist/wishlist-service.ts" />

@@ -1,0 +1,22 @@
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4" ng-show="ctrl.entries.length > 0" ng-repeat="entry in ctrl.getAllEntries()">
+            <div class="thumbnail">
+                <img src="{{ entry.imageUri }}">
+                <div class="caption">
+                    <h3>{{ entry.name }}</h3>
+                    <strong>Details: </strong>
+					<p>{{ entry.description}}</p>
+                    <strong>Price: </strong> {{ entry.price | currency : '€' }}
+                    <p></p>
+                </div>
+                <div>
+                    <button ng-click="ctrl.addToShoppingCart(article)">In den Warenkorb</button>
+                </div>
+            </div>
+        </div>
+        <div ng-hide="ctrl.getAllEntries().length > 0">
+            <h4>Keine Artikel auf dem Wunschzettel.</h4>
+        </div>
+    </div>
+</div>

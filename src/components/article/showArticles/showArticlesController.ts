@@ -8,18 +8,14 @@ module Article{
 		private articlesToShow: Article[];
 		private shoppingCartService: ShoppingCartService;
 		private showArticlesService: ShowArticlesService;
+		private wishlistService: WishlistService;
 		
-//		static $inject = ['ArticleService'];
-//		constructor(articleService: ArticleService){
-//			this.articleService = articleService;
-//			this.articles = this.articleService.getAllArticles();
-//		}
-		
-		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService'];
-		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService, showArticlesService: ShowArticlesService) {
+		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService', 'WishlistService'];
+		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService, showArticlesService: ShowArticlesService, wishlistService: WishlistService) {
 			this.shoppingCartService = shoppingCartService;
 			this.articles = articleService.getAllArticles();
 			this.showArticlesService = showArticlesService;
+			this.wishlistService = wishlistService;
 			
 			this.loadArticlesOfCategory(showArticlesService.getCategory());
 		}
@@ -59,6 +55,11 @@ module Article{
 		
 		public addToShoppingCart(article: Article){
 			this.shoppingCartService.addArticle(article, 1);
+		}
+		
+		public addToWishlist(article: Article){
+			console.log("debug add");
+			this.wishlistService.addArticle(article);
 		}
 	}
 	
