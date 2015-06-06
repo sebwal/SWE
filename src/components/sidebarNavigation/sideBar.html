@@ -1,0 +1,5 @@
+<div id="sidebarNavigation" ng-controller="SidebarController as sc">		
+	<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation" ng-repeat="element in sc.elements" ng-class="{ active: isActive('{{ element.href }}')}"><a ng-href="#{{ element.href }}"><span class="glyphicon {{ element.glyphicon }}"></span>{{ element.name }}</li>
+  	</ul>
+</div>

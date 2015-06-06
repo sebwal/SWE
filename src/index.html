@@ -15,44 +15,12 @@
 		<script src="/bower_components/angular-route/angular-route.min.js"></script>
 			
         <script src="components/base/app/app.js"></script>  
-
 		<!---->
 	</head>
 	<body ng-app="shop">
 		<div id="headerdiv">
 			<h1>Web Shop</h1>
-			<nav class="navbar navbar-default">
-			  <div class="container-fluid" >
-		    	<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
-		      		<ul class="nav navbar-nav">
-						<li class="dropdown" ng-controller="AppController as ctrl">
-				          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
-				          <ul class="dropdown-menu" role="menu">
-				            <li><a href="#/showArticles" ng- ng-click="ctrl.setArticleCategory(0)">Wohn- & Esszimmer</a></li>
-				            <li><a href="#/showArticles" ng-click="ctrl.setArticleCategory(1)">Küchen</a></li>
-				            <li><a href="#/showArticles" ng-click="ctrl.setArticleCategory(2)">Schlafen</a></li>
-				            <li class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
-				            <li class="divider"></li>
-				            <li><a href="#">One more separated link</a></li>
-				          </ul>
-				        </li>
-		      		</ul>
-					<form class="navbar-form pull-left" role="search">
-			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search...">
-				        <button class="btn btn-default" type="button">Go!</button>
-			        </div>
-					</form>
-					<form class="navbar-form pull-right" role="search">
-			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="E-Mail">
-					  <input type="text" class="form-control" placeholder="Password">
-			        </div>
-			        <button type="submit" class="btn btn-default">Login</button>
-			      </form>
-		  	   </div>
-			</nav>
+			<ng-include src="'components/navBar/navBar.html'"></ng-include>
 		</div>
 		<div id="placeholder">
 			<img src="img/webshop.jpg" height="150px"/>
@@ -60,10 +28,6 @@
 		
 		<div id="body" ng-view></div>
 		
-		<div id="sidebarNavigation" ng-controller="SidebarController as sc">		
-			<ul class="nav nav-pills nav-stacked">
-				  <li role="presentation" ng-repeat="element in sc.elements" ng-class="{ active: isActive('{{ element.href }}')}"><a ng-href="#{{ element.href }}"><span class="glyphicon {{ element.glyphicon }}"></span>{{ element.name }}</li>
-		  	</ul>
-		</div>
+		<ng-include src="'components/sidebarNavigation/sideBar.html'"></ng-include>
 	</body>
 </html>
