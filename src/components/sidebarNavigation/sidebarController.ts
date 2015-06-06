@@ -8,10 +8,11 @@ module WebShop{
 		elements : SidebarElement[];
 		
 		constructor(){
-			this.elements.push(new SidebarElement("Home"));
-			this.elements.push(new SidebarElement("Warenkorb"));
-			this.elements.push(new SidebarElement("Wunschliste"));
-			this.elements.push(new SidebarElement("Bestellungen"));
+			this.elements = [];
+			this.elements.push(new SidebarElement("Home", "/home", "glyphicon-home", false));
+			this.elements.push(new SidebarElement("Warenkorb", "/shoppingCart", "glyphicon-shopping-cart", false));
+			this.elements.push(new SidebarElement("Wunschliste", "/wishlist", "glyphicon-piggy-bank", false));
+			this.elements.push(new SidebarElement("Bestellungen", "/orderHistory", "glyphicon-ok-sign", false));
 		}
 		
 		public alertElements(){

@@ -6,12 +6,9 @@ module Article{
 	export class ShowArticlesController{
 		private articles: Article[];
 		private articlesToShow: Article[];
-		private shoppingCartService: ShoppingCartService;
-		private showArticlesService: ShowArticlesService;
-		private wishlistService: WishlistService;
 		
 		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService', 'WishlistService'];
-		constructor(shoppingCartService: ShoppingCartService, articleService: ArticleService, showArticlesService: ShowArticlesService, wishlistService: WishlistService) {
+		constructor(private shoppingCartService: ShoppingCartService, private articleService: ArticleService, private showArticlesService: ShowArticlesService, private wishlistService: WishlistService) {
 			this.shoppingCartService = shoppingCartService;
 			this.articles = articleService.getAllArticles();
 			this.showArticlesService = showArticlesService;
@@ -58,7 +55,6 @@ module Article{
 		}
 		
 		public addToWishlist(article: Article){
-			console.log("debug add");
 			this.wishlistService.addArticle(article);
 		}
 	}

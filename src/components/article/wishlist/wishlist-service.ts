@@ -13,12 +13,10 @@ module Article{
 		
 		public addArticle(article: Article){
 			this.entries.push(article);
-console.log("debug add service");
 			alert("Artikel wurde dem Wunschzettel hinzugefügt");
 		}
 		
 		public getAllEntries(): Array<Article>{
-			console.log("get");
 			return this.entries;
 		}
 	}

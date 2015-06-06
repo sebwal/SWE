@@ -5,11 +5,9 @@ module Article{
 	
 	export class ShoppingCartController{
 		private entries: ShoppingCartEntry[];
-		shoppingCartService: ShoppingCartService;
-		orderService: Order.OrderService;
 		
 		static $inject = ['ShoppingCartService', 'OrderService'];		
-		constructor(shoppingCartService: ShoppingCartService, orderService: Order.OrderService){
+		constructor(private shoppingCartService: ShoppingCartService, private orderService: Order.OrderService){
 			this.entries = shoppingCartService.getAllEntries();						
 			this.shoppingCartService = shoppingCartService;
 			this.orderService = orderService;

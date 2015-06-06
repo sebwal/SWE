@@ -5,11 +5,9 @@ module Article{
 	
 	export class WishlistController{
 		private entries: Article[];
-		shoppingCartService: ShoppingCartService;
 		
 		static $inject = ['ShoppingCartService', 'WishlistService'];		
-		constructor(shoppingCartService: ShoppingCartService, wishlistService: WishlistService){
-			console.log("debug ctrl");
+		constructor(private shoppingCartService: ShoppingCartService, private wishlistService: WishlistService){
 			this.entries = wishlistService.getAllEntries();						
 			this.shoppingCartService = shoppingCartService;
 		}

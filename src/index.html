@@ -60,25 +60,10 @@
 		
 		<div id="body" ng-view></div>
 		
-<<<<<<< HEAD
 		<div id="sidebarNavigation" ng-controller="SidebarController as sc">		
-=======
-		<div id="sidebarNavigation" ng-controller="SidebarController as sc">			
->>>>>>> 5f2dfd3096e482aa51f6708d3443185dc3a6e21a
 			<ul class="nav nav-pills nav-stacked">
-			  <li role="presentation" ng-repeat="element in elements"><a href="#/home"><span class="glyphicon glyphicon-home"></span>{{element}}</li> 
-			  <!--<li role="presentation" ng-class="{ active: isActive('/home')}"><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-
-			  <li role="presentation" ng-class="{ active: isActive('/shoppingCart')}"><a href="#/shoppingCart"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb</a></li>
-			  <li role="presentation" ng-class="{ active: isActive('/wishlist')}"><a href="#/wishlist"><span class="glyphicon glyphicon-piggy-bank"></span> Wunschliste</a></li>
-<<<<<<< HEAD
-			  <li role="presentation" ng-class="{ active: isActive('/orderHistory')}"><a href="#/orderHistory"><span class="glyphicon glyphicon-ok-sign"></span> Bestellungen</a></li>-->
-			  <button ng-click="sc.alertElements()">Test</button>
-			</ul>	
-=======
-			  <li role="presentation" ng-class="{ active: isActive('/orderHistory')}"><a href="#/orderHistory"><span class="glyphicon glyphicon-ok-sign"></span> Bestellungen</a></li>
-			</ul>
->>>>>>> 5f2dfd3096e482aa51f6708d3443185dc3a6e21a
+				  <li role="presentation" ng-repeat="element in sc.elements" ng-class="{ active: isActive('{{ element.href }}')}"><a ng-href="#{{ element.href }}"><span class="glyphicon {{ element.glyphicon }}"></span>{{ element.name }}</li>
+		  	</ul>
 		</div>
 	</body>
 </html>

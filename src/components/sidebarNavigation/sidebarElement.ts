@@ -4,16 +4,16 @@ module WebShop{
 	'use strict';
 	
 	export class SidebarElement{
-		text: string;
-		active: boolean;
 		
-		constructor(text: string){
-			this.text = text;
-			this.active = false;
+		constructor(private name: string, private href: string, private glyphicon: string, private isActive: boolean){
 		}
 		
-		public setActive(active: boolean){
-			this.active = active;
+		public activate(){
+			this.isActive = true;
+		}
+		
+		public deactivate(){
+			this.isActive = false;
 		}
 	}
 }
