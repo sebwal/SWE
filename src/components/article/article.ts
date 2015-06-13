@@ -3,6 +3,12 @@
 module Article{
 	'use strict';
 	
+	export enum Category{
+		living,
+		kitchen,
+		bedroom
+	}
+	
 	export class Article{
 		static globalId: number;
 		id: number;

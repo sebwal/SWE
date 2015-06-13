@@ -3,12 +3,6 @@
 module Article{
 	'use strict';
 
-	export enum Category{
-		living,
-		kitchen,
-		bedroom
-	}
-	
 	export class ShowArticlesService{
 		category: Category;
 		

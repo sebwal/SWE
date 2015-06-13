@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //don't know what this is supposed to do...
+
 var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     uglify = require('gulp-uglify'),
@@ -16,7 +18,14 @@ gulp.task('webserver', function(){
         open: 'http://localhost:1337/src',
         livereload: {
           enable: true
-        }
+        },
+        //workaround
+        proxies: [
+          {
+            source: "/rest",
+            target: "https://localhost/shop/rest"
+          }
+        ]
       }));
 });
 //compiles the .ts files to app.js
