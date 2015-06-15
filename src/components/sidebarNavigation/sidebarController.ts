@@ -13,6 +13,7 @@ module WebShop{
 			this.elements.push(new SidebarElement("Warenkorb", "/shoppingCart", "glyphicon-shopping-cart", false));
 			this.elements.push(new SidebarElement("Wunschliste", "/wishlist", "glyphicon-piggy-bank", false));
 			this.elements.push(new SidebarElement("Bestellungen", "/orderHistory", "glyphicon-ok-sign", false));
+			this.elements.push(new SidebarElement("Neuer Artikel", "/addArticle", "glyphicon-plus", false));
 		}
 		
 		public alertElements(){
