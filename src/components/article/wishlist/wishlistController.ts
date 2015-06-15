@@ -18,6 +18,8 @@ module Article{
 		
 		public addEntryToShoppingCart(entry: Article){
 			this.shoppingCartService.addArticle(entry, 1);
+			this.wishlistService.removeArticle(entry);
+			this.entries = this.wishlistService.getAllEntries();
 		}
 	}
 	

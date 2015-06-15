@@ -5,6 +5,7 @@ module Article{
 	
 	export class ShoppingCartService{		
 		
+		//Hier stehen die Artikel vom Warenkorb drin
 		private entries: ShoppingCartEntry[];
 		 
 		constructor(){
@@ -20,6 +21,7 @@ module Article{
 					return;
 				}
 			}
+			//Neuer Warenkorb Eintrag erzeugen
 			this.entries.push(new ShoppingCartEntry(article, amount));
 
 			alert("Artikel wurde dem Warenkorb hinzugefügt");

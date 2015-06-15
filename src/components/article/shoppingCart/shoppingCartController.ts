@@ -8,6 +8,8 @@ module Article{
 		
 		static $inject = ['ShoppingCartService', 'OrderService'];		
 		constructor(private shoppingCartService: ShoppingCartService, private orderService: Order.OrderService){
+			
+			//Hole Warenkorb-Einträge
 			this.entries = shoppingCartService.getAllEntries();						
 			this.shoppingCartService = shoppingCartService;
 			this.orderService = orderService;

@@ -3,5 +3,5 @@
 module App {
 	'use strict';
 	
-	var app = angular.module('shop', ['ngRoute']);
+	var app = angular.module('shop', ['ngRoute','ngResource']);
 }

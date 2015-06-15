@@ -1,13 +1,14 @@
-<h3 ng-hide=true>--force twoway-binding-- "{{ ctrl.getCurrentCategory() }}":</h3>
+
 <div class="col-sm-12">
     <div class="row">
-        <div class="col-sm-4" ng-repeat="article in ctrl.getArticlesToShow()">
+        <div class="col-sm-4" ng-repeat="article in ctrl.articles" ng-hide="{{article.ausgesondert}}">
             <div class="thumbnail">
-                <img src="{{ article.imageUri }}">
+                <img ng-src="{{ article.imageUri }}">
                 <div class="caption">
                     <h3>{{ article.name }}</h3>
                     <strong>Details: </strong>
 					<p>{{ article.description}}</p>
+                    
                     <strong>Price: </strong> {{ article.price | currency : '€' }}                    
                 </div>
                 <div>

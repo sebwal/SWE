@@ -19,6 +19,14 @@ module Article{
 		public getAllEntries(): Array<Article>{
 			return this.entries;
 		}
+		
+		public removeArticle(article: Article){
+			for(var i = 0; i < this.entries.length; i++){
+				if(this.entries[i] === article){
+					this.entries.splice(i, 1);
+				}
+			}
+		}
 	}
 	
 	var app = angular.module('shop');

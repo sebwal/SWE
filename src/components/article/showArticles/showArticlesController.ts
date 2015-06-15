@@ -4,17 +4,32 @@ module Article{
 	'use strict';
 	
 	export class ShowArticlesController{
-		private articles: Article[];
+		public articles: Article[];
 		private articlesToShow: Article[];
 		
 		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService', 'WishlistService'];
 		constructor(private shoppingCartService: ShoppingCartService, private articleService: ArticleService, private showArticlesService: ShowArticlesService, private wishlistService: WishlistService) {
 			this.shoppingCartService = shoppingCartService;
-			this.articles = articleService.getAllArticles();
+			//this.articles = articleService.getAllArticles(); 
 			this.showArticlesService = showArticlesService;
 			this.wishlistService = wishlistService;
-			
-			this.loadArticlesOfCategory(showArticlesService.getCategory());
+
+			this.articles = [];
+			var self = this;
+			var articlesPromise = articleService.getArticles();
+			articlesPromise.$promise.then(function(value){
+				var arr = [];
+				arr = value;
+				var article;
+				arr.forEach(function(element) {
+					article = new Article(element.id, element.bezeichnung, element.preis, "no description", element.ausgesondert);
+					console.log(article);
+					console.log(element);
+					self.articles.push(article);
+				}, this);
+				
+				self.loadArticlesOfCategory(showArticlesService.getCategory());
+			});						
 		}
 		
 		public getCurrentCategory(){
