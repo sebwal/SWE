@@ -23,7 +23,7 @@ gulp.task('webserver', function(){
         proxies: [
           {
             source: "/rest",
-            target: "https://localhost/shop/rest"
+            target: "https://localhost:8443/shop/rest"
           }
         ]
       }));
