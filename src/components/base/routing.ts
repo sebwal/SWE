@@ -35,11 +35,6 @@ module App{
 			controller: 'WishlistController',
 			controllerAs: 'ctrl'
 		})
-		.when('/addArticle',{
-			templateUrl: 'components/article/addArticle/addArticle.html',
-			controller: 'addArticleController',
-			controllerAs: 'ctrl'
-		})
 		.otherwise({
 			redirectTo: '/home'
 		});

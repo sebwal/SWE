@@ -1,18 +1,31 @@
 <div class="col-sm-4">
+<form novalidate class="simple form">
 	<div>
 		<p></p>
-		<input type="text" class="form-control" placeholder="Artikelname" ng-model="ctrl.name"></input>
+		<input type="text" class="form-control" placeholder="id" ng-model="a.id"></input>
 	</div>
 	<div>
 		<p></p>
-		<input type="number" class="form-control" placeholder="Preis" ng-model="ctrl.price"></input>
+		<input type="text" class="form-control" placeholder="Artikelname" ng-model="a.name"></input>
 	</div>
 	<div>
 		<p></p>
-		<input class="form-control" placeholder="Beschreibung" ng-model="ctrl.description"></input>
+		<input type="number" class="form-control" placeholder="Preis" ng-model="a.price"></input>
 	</div>
 	<div>
 		<p></p>
-		<button class="btn btn-default" ng-click="ctrl.addArticle()">Add Article</button>
+		<input type="text" class="form-control" placeholder="Beschreibung" ng-model="a.description"></input>
 	</div>
+	<div>
+		<p></p>
+		<button ng-click="ctrl.addArticle(a)">Add Article</button>
+	</div>
+</form>
+
+</div>
+
+<div class="col-sm-4">
+	<prev id="default-spacing">
+	{{{'id':ctrl.id, 'name':ctrl.name, 'price':ctrl.price, 'description':ctrl.description}   | json}}
+	</prev>
 </div>

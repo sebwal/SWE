@@ -5,8 +5,31 @@ module Article{
 	
 	export class AddArticleController{
 		article: Article;
+		id:number;
+		name: string;
+		price: number;
+		description: string;
+		ausgesondert: boolean;
 		
-		addArticle(){
+
+		
+		static $inject = ['ArticleService'];	
+		
+		constructor(private articleService: ArticleService){
+		}
+		
+		addArticle(newArticle){
+			console.log(newArticle.name);
+			
+			this.id = newArticle.id;
+			this.name = newArticle.name;
+			this.price = newArticle.price;
+			this.description = newArticle.description;
+			this.ausgesondert = false;
+			
+			
+			//this.article = new Article
+			//(newArticle.id, newArticle.name, newArticle.price, newArticle.description, this.ausgesondert);
 		}
 	}
 	

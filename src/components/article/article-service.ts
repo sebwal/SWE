@@ -36,6 +36,11 @@ module Article{
 			//ArticleResource: Hier werden Daten geholt
             return articleRes.query(null,function() {},function(){alert("Fehler")});		
 		}
+		
+		postArticles(): any {
+			
+			
+		}
 	}
 	
 	var app = angular.module('shop');

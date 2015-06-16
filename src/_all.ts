@@ -3,6 +3,7 @@
 /// <reference path="./components/base/app/appController.ts" />
 /// <reference path="./components/article/article.ts" />
 /// <reference path="./components/article/addArticle/addArticleController.ts" />
+/// <reference path="./components/article/addArticle/addArticle-service.ts" />
 /// <reference path="./components/article/removeArticle/removeArticleController.ts" />
 /// <reference path="./components/article/showArticles/showArticlesController.ts" />
 /// <reference path="./components/article/showArticles/showArticles-service.ts" />
