@@ -13,9 +13,10 @@ module Article{
 		
 
 		
-		static $inject = ['ArticleService'];	
+		static $inject = ['AddArticleService','ArticleService'];	
+		//static $inject = ['ArticleService'];	
 		
-		constructor(private articleService: ArticleService){
+		constructor(private addArticleService: AddArticleService , private articleService: ArticleService){
 		}
 		
 		addArticle(newArticle){
@@ -28,8 +29,10 @@ module Article{
 			this.ausgesondert = false;
 			
 			
-			//this.article = new Article
-			//(newArticle.id, newArticle.name, newArticle.price, newArticle.description, this.ausgesondert);
+			this.article = new Article (newArticle.id, newArticle.name, newArticle.price, newArticle.description, this.ausgesondert);
+			
+			//console.log(newArticle.name);
+			this.addArticleService.addArticle(this.article);
 		}
 	}
 	
