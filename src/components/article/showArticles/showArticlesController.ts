@@ -10,7 +10,7 @@ module Article{
 		static $inject = ['ShoppingCartService', 'ArticleService', 'ShowArticlesService', 'WishlistService'];
 		constructor(private shoppingCartService: ShoppingCartService, private articleService: ArticleService, private showArticlesService: ShowArticlesService, private wishlistService: WishlistService) {
 			this.shoppingCartService = shoppingCartService;
-			//this.articles = articleService.getAllArticles(); 
+			
 			this.showArticlesService = showArticlesService;
 			this.wishlistService = wishlistService;
 
@@ -22,7 +22,7 @@ module Article{
 				arr = value;
 				var article;
 				arr.forEach(function(element) {
-					article = new Article(element.id, element.bezeichnung, element.preis, "no description", element.ausgesondert);
+					article = new Article(element.bezeichnung, element.preis, element.ausgesondert);
 					console.log(article);
 					console.log(element);
 					self.articles.push(article);
@@ -58,8 +58,8 @@ module Article{
 			this.articlesToShow = [];
 			for(var i = 0; i < this.articles.length; i++){
 				var currArticle = this.articles[i];
-				if(currArticle.name.search(searchText) 
-					|| currArticle.description.search(searchText)){
+				if(currArticle.bezeichnung.search(searchText) 
+					|| currArticle.bezeichnung.search(searchText)){
 						this.articlesToShow.push(currArticle);
 				}
 			}

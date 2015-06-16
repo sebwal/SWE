@@ -4,10 +4,8 @@
             <div class="thumbnail">
                 <img src="{{ entry.article.imageUri }}">
                 <div class="caption">
-                    <h3>{{ entry.article.name }}</h3>
-                    <strong>Details: </strong>
-					<p>{{ entry.article.description}}</p>
-                    <strong>Price: </strong> {{ entry.article.price | currency : '€' }}
+                    <h3>{{ entry.article.bezeichnung }}</h3>
+                    <strong>Preis: </strong> {{ entry.article.preis | currency : '€' }}
                     <p></p>
                     <strong>In Warenkorb: </strong> {{ entry.amount }}
                     <button ng-click="ctrl.increaseAmount(entry)">add</button>
@@ -17,6 +15,10 @@
         </div>
         <div ng-hide="ctrl.getAllEntries().length > 0">
             <h4>Keine Artikel im Warenkorb. Gehen sie shoppen! :)</h4>
+        </div>
+        
+        <div>
+            {{ctrl.sum}}
         </div>
     </div>
 </div>

@@ -1,31 +1,55 @@
-<div class="col-sm-4">
+
+<div class="col-sm-3">
 <form novalidate class="simple form">
 	<div>
-		<p></p>
-		<input type="text" class="form-control" placeholder="id" ng-model="a.id"></input>
+		<input type="text" class="form-control" placeholder="Artikelname" ng-model="ctrl.bezeichnung"></input>
 	</div>
 	<div>
 		<p></p>
-		<input type="text" class="form-control" placeholder="Artikelname" ng-model="a.name"></input>
+		<input type="number" class="form-control" placeholder="Preis" ng-model="ctrl.preis"></input>
 	</div>
 	<div>
 		<p></p>
-		<input type="number" class="form-control" placeholder="Preis" ng-model="a.price"></input>
-	</div>
-	<div>
-		<p></p>
-		<input type="text" class="form-control" placeholder="Beschreibung" ng-model="a.description"></input>
-	</div>
-	<div>
-		<p></p>
-		<button ng-click="ctrl.addArticle(a)">Add Article</button>
+		<button ng-click="ctrl.addArticle()">Add Article</button>
 	</div>
 </form>
 
 </div>
 
+<div class="col-sm-2">
+</div>
+
+<div class="col-sm-4"  >
+	<p>Vorschau:</p>
+	<div class="thumbnail" ng-show="ctrl.bezeichnung || ctrl.preis">
+		<h3>{{ ctrl.bezeichnung }}</h3>
+		<strong ng-show="ctrl.preis">Preis: </strong> {{ ctrl.preis | currency : '€' }}    
+	</div>
+</div>
+	
+<p></p>
+<!--
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4">
+   			<div class="thumbnail">
+	   			<div class="caption">
+		   		<h3>{{ ctrl.bezeichnung }}</h3>
+		   		<strong>Preis: </strong> {{ ctrl.preis | currency : '€' }}                    
+      		 </div>
+       		 <div>
+				<button ng-click="">In den Warenkorb</button>
+           		<button ng-click="">Zur Wunschliste hinzufügen</button>
+   	     	</div>
+  			<div>
+        </div>
+    </div>
+</div>
+-->
+<!--
 <div class="col-sm-4">
 	<prev id="default-spacing">
-	{{{'id':ctrl.id, 'name':ctrl.name, 'price':ctrl.price, 'description':ctrl.description}   | json}}
+	{{{'bezeichnung':ctrl.bezeichnung, 'preis':ctrl.preis}   | json}}
 	</prev>
 </div>
+-->

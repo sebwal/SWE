@@ -4,10 +4,8 @@
             <div class="thumbnail">
                 <img src="{{ entry.imageUri }}">
                 <div class="caption">
-                    <h3>{{ entry.name }}</h3>
-                    <strong>Details: </strong>
-					<p>{{ entry.description}}</p>
-                    <strong>Price: </strong> {{ entry.price | currency : '€' }}
+                    <h3>{{ entry.bezeichnung }}</h3>
+                    <strong>Preis: </strong> {{ entry.preis | currency : '€' }}
                     <p></p>
                 </div>
                 <div>

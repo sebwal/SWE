@@ -3,7 +3,7 @@ module Article{
 	
 	export class AddArticleService {
         static $inject: Array<string> = ['$resource'];
-		private addArticleUri : string ="https://localhost:1337/rest/artikel";
+		private addArticleUri : string ="http://localhost:1337/rest/artikel";
 	
     constructor(private resourceService: ng.resource.IResourceService){			
 		}	
@@ -15,7 +15,8 @@ module Article{
                 headers: {Authorization: 'Basic YWRtaW46cA=='}
             }
            });
-		   
+		  
+		 
 		  articleRes.save(article, function(response) {
 			  alert("Artikel hinzugefügt")
 		  }, function(){alert("Fehler")});

@@ -14,7 +14,7 @@ module Article{
 		
 		public addArticle(article: Article, amount: number){
 			for(var i = 0; i < this.entries.length; i++){
-				if(this.entries[i].article.name === article.name){
+				if(this.entries[i].article.bezeichnung === article.bezeichnung){
 					this.entries[i].amount += amount;
 		
 					alert("Artikel wurde dem Warenkorb hinzugefügt");

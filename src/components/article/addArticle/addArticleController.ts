@@ -5,10 +5,10 @@ module Article{
 	
 	export class AddArticleController{
 		article: Article;
-		id:number;
-		name: string;
-		price: number;
-		description: string;
+		//id:number;
+		bezeichnung: string;
+		preis: number;
+		//description: string;
 		ausgesondert: boolean;
 		
 
@@ -19,20 +19,16 @@ module Article{
 		constructor(private addArticleService: AddArticleService , private articleService: ArticleService){
 		}
 		
-		addArticle(newArticle){
-			console.log(newArticle.name);
-			
-			this.id = newArticle.id;
-			this.name = newArticle.name;
-			this.price = newArticle.price;
-			this.description = newArticle.description;
-			this.ausgesondert = false;
-			
-			
-			this.article = new Article (newArticle.id, newArticle.name, newArticle.price, newArticle.description, this.ausgesondert);
-			
+		addArticle(){
 			//console.log(newArticle.name);
+			//this.bezeichnung = newArticle.bezeichnung;
+			//this.preis = newArticle.preis;
+			this.ausgesondert = false;
+			this.article = new Article (this.bezeichnung, this.preis, this.ausgesondert);
 			this.addArticleService.addArticle(this.article);
+			
+			this.bezeichnung = "";
+			this.preis = null;
 		}
 	}
 	
